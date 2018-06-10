@@ -1,0 +1,24 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="nav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <h2>Material Side Nav</h2>
+</mat-toolbar>
+
+<mat-sidenav-container style="height:100%" [hasBackdrop]="false">
+
+  <mat-sidenav #nav style="width:272px" mode="push">
+    <img src="../assets/sidenav_background.jpg" style="height:180px;width:100%;overflow: none">
+  </mat-sidenav>
+  <mat-sidenav-content >
+    <div style="padding:1%;height:90vh">
+      <p *ngFor="let i of count">
+        According to the Material design spec button text has to be capitalized, however we have opted not to capitalize buttons
+        automatically via te Directivesxt-transform: uppercase, because it can cause issues in certain locales. It is also
+        worth noting that using ALL CAPS in the text itself causes issues for screen-readers, which will read the text character-by-character.
+        We leave the decision of how to approach this to the consuming app.
+      </p>
+    </div>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
