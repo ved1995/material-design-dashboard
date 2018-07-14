@@ -1,0 +1,41 @@
+<div style="width:100%;height:100%;position:fixed;background-color:#f8f8f8">
+
+  <div class="col-lg-4 col-md-6 col-sm-10" style="margin:auto;margin-top:5%">
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    <mat-card>
+      <mat-card-title>
+        <h3>Please Login Here</h3>
+      </mat-card-title>
+      <mat-card-subtitle>
+        <p>provide your credential</p>
+      </mat-card-subtitle>
+      <mat-card-content>
+
+        <mat-tab-group [selectedIndex]="tab">
+          <mat-tab>
+            <form [formGroup]="loginFormEmail" (ngSubmit)="loginEmail()">
+              <mat-form-field style="width:100%">
+                <input matInput type="text" formControlName="Email" placeholder="Email">
+                <mat-error *ngIf="loginFormEmail.get('Email').hasError('email') && !loginFormEmail.get('Email').hasError('required') ">error in email</mat-error>
+                <mat-error *ngIf="loginFormEmail.get('Email').hasError('required')">Email is required</mat-error>
+              </mat-form-field>
+              <button mat-raised-button color="primary" type="submit" [disabled]="!loginFormEmail.valid">Next</button>
+            </form>
+          </mat-tab>
+          <mat-tab>
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+              <mat-form-field style="width:100%">
+                <input matInput type="text" formControlName="Password" placeholder="Password">
+                <mat-error *ngIf="loginForm.get('Password').hasError('required')">password is required</mat-error>
+              </mat-form-field>
+              <button mat-raised-button color="primary" type="submit">Login</button>
+            </form>
+          </mat-tab>
+
+        </mat-tab-group>
+        {{userName}}{{password}}
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div style="height: 100%;width:100%;position: fixed;background-color: aliceblue">
+  <div class="col-lg-4 col-md-6 col-sm-10" style="margin: auto;margin-top: 5%">
+    <mat-card>
+      <mat-card-title>
+        <h2>Welcome to login form</h2>
+      </mat-card-title>
+      <mat-card-subtitle>
+        provide credential here
+      </mat-card-subtitle>
+      <mat-card-content>
+        <form [formGroup]="loginform" (ngSubmit)="(onFormSubmit(loginform.value))">
+          <mat-form-field style="width:100%">
+            <input matInput formControlName='Email' placeholder="provide Email" [value]="loginform.get('Email').value" [errorStateMatcher]="matcher">
+            <mat-error *ngIf="loginform.get('Email').hasError('required')">Email is required</mat-error>
+            <mat-error *ngIf="loginform.get('Email').hasError('email') && !loginform.get('Email').hasError('required') ">please enter valid email</mat-error>
+          </mat-form-field>
+
+
+          <button mat-raised-button type='submit' class="btn btn-primary" color="primary">Next</button>
+        </form>
+        valid:{{loginform.get('Email').valid}}
+        <br> touched:{{loginform.get('Email').touched}}
+        <br> dirty:{{loginform.get('Email').dirty}}
+        <br> values:email:{{loginform.get('Email').value}}
+        <h2 *ngFor="let validation of validation_error_message.Email">{{validation.message}}</h2>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

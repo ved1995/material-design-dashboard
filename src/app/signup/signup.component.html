@@ -1,0 +1,45 @@
+<div style="width:100%; height: 100%; position: fixed; background-color:#f8f8f8">
+  <div class="col-lg-4 col-md-6 col-sm-10" style="margin:auto;margin-top: 5%">
+    <mat-card>
+      <mat-card-title>
+        <h2>
+          <strong>Sign Up</strong>
+        </h2>
+        <mat-card-subtitle>
+          please provide following credential
+        </mat-card-subtitle>
+      </mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="signupForm" (ngSubmit)="signup()">
+         
+            <tr>
+              <td>
+                <mat-form-field>
+                    <input matInput formControlName="firstName" placeholder="First Name">
+                    <mat-error *ngIf="signupForm.get('firstName').hasError('required')">First Name is required</mat-error>
+                </mat-form-field>
+                
+              </td>
+              <td>
+                <mat-form-field>
+                    <input matInput formControlName="lastName"  placeholder="LastName">
+                </mat-form-field>
+                
+              </td>
+            </tr>
+          <mat-form-field style="width:100%">
+            <input matInput formControlName="email" placeholder="Email">
+            <mat-error *ngIf="signupForm.get('email').hasError('email') && !signupForm.get('email').hasError('required')">Email is not valid</mat-error>
+            <mat-error *ngIf="signupForm.get('email').hasError('required')">Email is required</mat-error>
+          </mat-form-field>
+          <mat-form-field style="width:100%">
+            <input matInput formControlName="password" placeholder="Password">
+            <mat-error *ngIf="signupForm.get('password').hasError('required')">password is required</mat-error>
+          
+          </mat-form-field>
+          <button mat-raised-button color="primary" type="submit" [disabled]="!signupForm.valid" style="padding-top: 10px">SIGN UP</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

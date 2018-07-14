@@ -1,8 +1,30 @@
-<mat-toolbar color="primary">
-  <button mat-icon-button (click)="nav.toggle()">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <h2>Material Side Nav</h2>
+<!-- <mat-toolbar color="primary">
+  <div class="row" style="width:100%">
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="row">
+        <button mat-icon-button (click)="nav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <h2>Material Side Nav</h2>
+      </div>
+
+    </div>
+
+    <div class="col-lg-4 col-md-6 col-sm-10">
+      <form class="form-group form-inline" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="search here" aria-label="Search" aria-describedby="basic-addon2" formControlName="search">
+          <div class="input-group-append">
+            <span class="input-group-text" id="inputGroup-sizing-default">
+              <button class="form-control" mat-icon-button type="submit">
+                <mat-icon>search</mat-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </mat-toolbar>
 
 <mat-sidenav-container style="height:100%" [hasBackdrop]="false">
@@ -10,7 +32,7 @@
   <mat-sidenav #nav style="width:272px" mode="push">
     <img src="../assets/sidenav_background.jpg" style="height:180px;width:100%;overflow: none">
   </mat-sidenav>
-  <mat-sidenav-content >
+  <mat-sidenav-content>
     <div style="padding:1%;height:90vh">
       <p *ngFor="let i of count">
         According to the Material design spec button text has to be capitalized, however we have opted not to capitalize buttons
@@ -21,4 +43,5 @@
     </div>
 
   </mat-sidenav-content>
-</mat-sidenav-container>
+</mat-sidenav-container> -->
+<router-outlet></router-outlet>
